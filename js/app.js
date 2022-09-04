@@ -20,16 +20,18 @@ const displayText = (id, value) => {
 
 // Display via search 
 document.getElementById('search-btn').addEventListener('click', function() {
-    const cityInput = document.getElementById('search-field');
-    const city = cityInput.value;
+    const yourCity = document.getElementById('search-field');
+    const city = yourCity.value;
+    yourCity.value = '';
     document.getElementById('city-name').innerText = city;
     loadWeatherApi(city);
 });
 
 document.getElementById('search-field').addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
-        const cityInput = document.getElementById('search-field');
-        const city = cityInput.value;
+        const yourCity = document.getElementById('search-field');
+        const city = yourCity.value;
+        yourCity.value = '';
         document.getElementById('city-name').innerText = city;
         loadWeatherApi(city);
     }

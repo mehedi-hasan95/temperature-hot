@@ -9,7 +9,7 @@ const loadWeatherApi = async city => {
 
 // Display the Temparature 
 const displayWeatherApi = weather => {
-    displayText('temperature', weather.main.temp);
+    displayText('temperature', Math.round(weather.main.temp));
     displayText('condition', weather.weather[0].main);
 }
 
@@ -26,6 +26,14 @@ document.getElementById('search-btn').addEventListener('click', function() {
     loadWeatherApi(city);
 });
 
+document.getElementById('search-field').addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        const cityInput = document.getElementById('search-field');
+        const city = cityInput.value;
+        document.getElementById('city-name').innerText = city;
+        loadWeatherApi(city);
+    }
+});
 
 
 
